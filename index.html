@@ -1,8 +1,3 @@
-Baik, ini adalah pembaruan kode utuh dari website gabungan Anda. Semua aset gambar dan pengaturan logo telah disesuaikan sepenuhnya untuk menggunakan berkas gambar logo Grup Akbar terbaru, yaitu `logo (1)_2.jpg`.
-
-Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek halaman pembuka dan isi website Anda:
-
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -26,7 +21,8 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       --gold-700: #7a500b;
       --paper: #fefbfa;
       --glass-border: rgba(255, 255, 255, 0.12);
-      --glass-bg: rgba(14, 6, 36, 0.78);
+      --glass-bg: rgba(14, 6, 36, 0.82);
+      --card-fill: linear-gradient(155deg, rgba(255, 255, 255, 0.04) 0%, rgba(106, 47, 201, 0.1) 60%, rgba(255, 255, 255, 0.01) 100%);
     }
 
     * {
@@ -41,18 +37,23 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       color: var(--paper);
       overflow-x: hidden;
       background: var(--ink-950);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
     }
 
-    /* === HIGH-PRECISION HARDWARE ACCELERATED ANIME BACKGROUND === */
+    /* === HIGH-PRECISION ANIMASI BACKGROUND ONE PIECE (LUFFY & KAPAL) === */
     .anime-bg {
       position: fixed;
       inset: -30px; 
       z-index: -10;
-      background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=1920&auto=format&fit=crop');
+      /* Menggunakan wallpaper berkualitas tinggi bertema laut, kapal Thousand Sunny, dan Luffy */
+      background-image: url('https://images.unsplash.com/photo-1627556587285-80df24aa96df?q=80&w=1920&auto=format&fit=crop'); /* Placeholder terarah, bisa diganti aset lokal jika ada */
+      background-image: url('https://images8.alphacoders.com/131/1314959.jpeg'); /* Fallback link jika Unsplash berganti */
       background-size: cover;
-      background-position: center;
-      filter: brightness(0.38) contrast(1.15) saturate(1.2);
+      background-position: center 30%;
+      filter: brightness(0.4) contrast(1.15) saturate(1.3);
       transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
       will-change: transform;
@@ -61,15 +62,15 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
 
     @keyframes animePanBreathe {
       0% { transform: scale(1.02) translate3d(0, 0, 0) rotate(0deg); }
-      50% { transform: scale(1.08) translate3d(-15px, -10px, 0) rotate(0.4deg); }
-      100% { transform: scale(1.02) translate3d(12px, 15px, 0) rotate(-0.4deg); }
+      50% { transform: scale(1.06) translate3d(-10px, -8px, 0) rotate(0.3deg); }
+      100% { transform: scale(1.02) translate3d(8px, 12px, 0) rotate(-0.3deg); }
     }
 
     .bg-overlay {
       position: fixed;
       inset: 0;
       z-index: -9;
-      background: linear-gradient(135deg, rgba(5, 2, 17, 0.4) 0%, rgba(14, 6, 36, 0.85) 100%);
+      background: linear-gradient(135deg, rgba(5, 2, 17, 0.4) 0%, rgba(14, 6, 36, 0.88) 100%);
       pointer-events: none;
     }
 
@@ -97,13 +98,13 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       100% { transform: translateY(-5vh) translateX(30px) scale(1); opacity: 0; }
     }
 
-    /* === SCREEN HIERARCHY & ANIMATION TRANSITION === */
+    /* === SCREEN TRANSITION MANAGEMENT === */
     .screen {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem 1.25rem;
+      padding: 2.5rem 1.25rem;
       position: absolute;
       width: 100%;
       top: 0;
@@ -112,7 +113,6 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       z-index: 20;
     }
 
-    /* 1. Halaman Pembuka (Splash Screen) */
     #splash-screen {
       opacity: 1;
       transform: translateY(0);
@@ -124,7 +124,6 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       pointer-events: none;
     }
 
-    /* 2. Halaman Isi Utama (Dashboard Content) */
     #content-screen {
       opacity: 0;
       transform: translateY(100vh);
@@ -148,7 +147,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       -webkit-backdrop-filter: blur(25px);
       border: 1px solid var(--glass-border);
       border-radius: 32px;
-      padding: 3rem 2.25rem;
+      padding: 2.5rem 1.75rem;
       text-align: center;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65), 
                   inset 0 1px 3px rgba(255, 255, 255, 0.15);
@@ -164,12 +163,12 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* === DESAIN LOGO CORNER GLOWING === */
+    /* === DESAIN LOGO GRUP AKBAR RESMI === */
     .logo-wrapper {
       position: relative;
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 2.25rem;
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 2rem;
     }
 
     .logo-glow {
@@ -214,7 +213,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       100% { transform: scale(1.05); opacity: 0.95; filter: blur(18px); }
     }
 
-    /* === ELEMEN TEKS & JUDUL === */
+    /* === ELEMEN TEKS === */
     h1 {
       font-family: 'Cinzel Decorative', serif;
       font-size: 2.2rem;
@@ -238,9 +237,9 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       position: relative;
       background: transparent;
       border: 2px solid var(--gold-400);
-      padding: 1rem 2.5rem;
+      padding: 0.9rem 2.2rem;
       font-family: 'Cairo', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--gold-300);
       letter-spacing: 4px;
@@ -265,14 +264,14 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       box-shadow: 0 0 30px rgba(255, 212, 121, 0.7);
     }
 
-    /* === INTERAKTIF UTAMA === */
+    /* === INTERAKTIF CANVAS TYPING === */
     .typing-container {
       min-height: 40px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .typing-text {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-family: 'Amiri', serif;
       color: var(--gold-300);
       border-right: 2px solid var(--gold-400);
@@ -288,71 +287,113 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       50% { border-color: var(--gold-400); }
     }
 
-    /* === DAFTAR MENU LINK === */
+    /* === UKURAN TOMBOL YANG PAS & MENARIK (TIDAK KEBESARAN/KEKECILAN) === */
     .menu-links {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-bottom: 2rem;
-    }
-
-    .menu-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .menu-item:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--lilac-400);
-      transform: translateX(5px);
-    }
-
-    .menu-item svg {
-      width: 18px;
-      height: 18px;
-      transition: transform 0.3s ease;
-    }
-
-    .menu-item:hover svg {
-      transform: translateX(3px);
-    }
-
-    /* === DAFTAR TOMBOL AKSI UTAMA === */
-    .action-buttons-holder {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      gap: 12px;
+      margin-bottom: 1.75rem;
       width: 100%;
     }
 
-    /* === TOMBOL PREMIUM SENSASIONAL === */
+    .menu-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 0.85rem 1.15rem; /* Ukuran proporsional yang pas */
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--paper);
+      background: var(--card-fill);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 6px 20px rgba(8,3,26,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-item::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -60%;
+      width: 30%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.12), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+
+    .menu-item:hover::after { left: 130%; }
+
+    .menu-item:hover {
+      transform: translateX(4px) translateY(-1px);
+      border-color: var(--gold-400);
+      box-shadow: 0 10px 24px rgba(8,3,26,0.45), 0 0 12px rgba(255, 212, 121, 0.2);
+    }
+
+    .icon-wrap {
+      width: 36px; height: 36px; /* Proporsional */
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 32% 28%, var(--gold-400) 40%, var(--gold-500) 100%);
+      color: var(--ink-950);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .icon-wrap svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .btn-title { font-weight: 700; font-size: 13.5px; }
+    .btn-desc { font-size: 10.5px; opacity: 0.6; }
+
+    .chevron {
+      margin-left: auto;
+      opacity: 0.5;
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-item:hover .chevron {
+      transform: translateX(3px);
+      opacity: 1;
+      color: var(--gold-400);
+    }
+
+    /* === HOLDER TOMBOL UTAMA EVENT & TWIBBON === */
+    .action-buttons-holder {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* === TOMBOL PREMIUM LIQUID SHINE (PAS & MENARIK) === */
     .premium-btn {
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
-      padding: 1.2rem 2rem;
+      padding: 0.95rem 1.75rem; /* Ukuran proporsional sesuai instruksi */
       border: none;
-      border-radius: 18px;
+      border-radius: 15px;
       font-family: 'Cairo', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
       cursor: pointer;
       overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Event UM (Glow Emas Premium) */
@@ -360,8 +401,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       background: linear-gradient(135deg, #a3720f 0%, #ffd97d 45%, #fff5d1 55%, #bd8612 100%);
       background-size: 200% auto;
       color: #261600;
-      box-shadow: 0 10px 30px rgba(212, 154, 23, 0.35),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 25px rgba(212, 154, 23, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.35);
       animation: liquidShine 5s ease infinite;
     }
 
@@ -370,8 +410,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       background: linear-gradient(135deg, #4c1d95 0%, #a855f7 45%, #f472b6 60%, #6d28d9 100%);
       background-size: 200% auto;
       color: #ffffff;
-      box-shadow: 0 10px 30px rgba(168, 85, 247, 0.35),
-                  inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.25);
       animation: liquidShine 5s ease infinite reverse;
     }
 
@@ -386,9 +425,9 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       position: absolute;
       top: 0;
       left: -150%;
-      width: 60%;
+      width: 50%;
       height: 100%;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.7), transparent);
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.6), transparent);
       transform: skewX(-30deg);
     }
 
@@ -403,57 +442,47 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
     }
 
     .premium-btn:hover {
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-3px) scale(1.01);
     }
     .premium-btn.gold-luxury:hover {
-      box-shadow: 0 16px 40px rgba(212, 154, 23, 0.55), 0 0 25px rgba(255, 240, 194, 0.6);
+      box-shadow: 0 12px 30px rgba(212, 154, 23, 0.45), 0 0 20px rgba(255, 240, 194, 0.5);
       color: #000000;
     }
     .premium-btn.violet-luxury:hover {
-      box-shadow: 0 16px 40px rgba(168, 85, 247, 0.55), 0 0 25px rgba(244, 114, 182, 0.6);
+      box-shadow: 0 12px 30px rgba(168, 85, 247, 0.45), 0 0 20px rgba(244, 114, 182, 0.5);
     }
 
-    .premium-btn svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-    }
+    .premium-btn svg { width: 18px; height: 20px; fill: currentColor; }
 
     /* === SOSIAL MEDIA GRIDS === */
     .social-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 2rem;
     }
 
     .social-btn {
+      width: 40px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--glass-border);
-      padding: 0.9rem;
-      border-radius: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s ease;
       color: var(--paper);
+      transition: all 0.3s ease;
     }
 
     .social-btn:hover {
       background: rgba(255, 255, 255, 0.12);
       border-color: var(--gold-400);
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
-    .social-btn svg {
-      width: 22px;
-      height: 22px;
-      stroke: currentColor;
-    }
+    .social-btn svg { width: 18px; height: 20px; stroke: currentColor; }
 
     /* === FOOTER === */
     footer {
-      margin-top: 2.5rem;
+      margin-top: 2.25rem;
       font-size: 0.85rem;
       opacity: 0.75;
     }
@@ -468,7 +497,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
 </head>
 <body>
 
-  <!-- LAYER BACKGROUND ANIMASI ANIME -->
+  <!-- LAYER BACKGROUND ANIMASI ANIME ONE PIECE (LUFFY & KAPAL) -->
   <div class="anime-bg"></div>
   <div class="bg-overlay"></div>
 
@@ -483,7 +512,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
       <div class="logo-wrapper">
         <div class="logo-glow"></div>
         <div class="logo-container">
-          <img class="logo-img" src="logo (1)_2.jpg" alt="Logo Grup Akbar Pekan Arabi 2026" onerror="this.src='https://via.placeholder.com/150/0e0624/ffd479?text=2026'">
+          <img class="logo-img" src="logo (1).jpg" alt="Logo Grup Akbar Pekan Arabi 2026" onerror="this.src='https://via.placeholder.com/150/0e0624/ffd479?text=2026'">
         </div>
       </div>
 
@@ -503,38 +532,60 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
     <div class="glass-card">
       
       <!-- Mini Logo Dashboard -->
-      <div class="logo-wrapper" style="width: 100px; height: 100px; margin-bottom: 1.5rem;">
+      <div class="logo-wrapper" style="width: 90px; height: 90px; margin-bottom: 1.25rem;">
         <div class="logo-glow"></div>
         <div class="logo-container">
-          <img class="logo-img" src="logo (1)_2.jpg" alt="Logo Grup Akbar Pekan Arabi 2026" onerror="this.src='https://via.placeholder.com/150/0e0624/ffd479?text=2026'">
+          <img class="logo-img" src="logo (1).jpg" alt="Logo Grup Akbar Pekan Arabi 2026" onerror="this.src='https://via.placeholder.com/150/0e0624/ffd479?text=2026'">
         </div>
       </div>
 
-      <h2 style="font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; margin-bottom: 0.2rem;">Pekan Arabi 2026</h2>
-      <div class="sub-title" style="font-size: 0.85rem; margin-bottom: 1.5rem;">Menu & Informasi Utama</div>
+      <h2 style="font-family: 'Cinzel Decorative', serif; font-size: 1.7rem; margin-bottom: 0.2rem; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.5);">Pekan Arabi 2026</h2>
+      <div class="sub-title" style="font-size: 0.8rem; margin-bottom: 1.5rem; letter-spacing: 3px;">Pendaftaran & Informasi</div>
 
       <!-- Teks Ketik Berjalan Otomatis -->
       <div class="typing-container">
         <span class="typing-text" id="typed-output"></span>
       </div>
 
-      <!-- TEMPAT DAFTAR ISI MENARIK -->
+      <!-- DAFTAR LINK / FORMULIR PENDAFTARAN & MACAM LOMBA -->
       <div class="menu-links">
-        <a href="#pendaftaran" class="menu-item">
-          <span>Pendaftaran Lomba</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        <a href="https://linktr.ee/pendaftaranpekanarabi2025" class="menu-item" target="_blank">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Formulir & Macam Lomba</span>
+            <span class="btn-desc">Pendaftaran Online Macam Lomba</span>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </a>
-        <a href="#panduan" class="menu-item">
-          <span>Buku Panduan / Juknis</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+
+        <!-- Buku Panduan Terhubung ke Google Drive -->
+        <a href="https://drive.google.com" class="menu-item" target="_blank">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Buku Panduan & Juknis</span>
+            <span class="btn-desc">Unduh File Juknis via Google Drive</span>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </a>
-        <a href="#jadwal" class="menu-item">
-          <span>Jadwal Pelaksanaan</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+
+        <!-- Jadwal Pelaksanaan diganti Lokasi UM -->
+        <a href="https://maps.google.com" class="menu-item" target="_blank">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Lokasi UM</span>
+            <span class="btn-desc">Peta Universitas Negeri Malang</span>
+          </div>
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </a>
       </div>
 
-      <!-- WADAH DUA TOMBOL UTAMA MENARIK -->
+      <!-- WADAH DUA TOMBOL PREMIUM SENSASIONAL -->
       <div class="action-buttons-holder">
         <!-- Tombol Aksi 1: Event UM (Mewah Gold) -->
         <button class="premium-btn gold-luxury" onclick="window.location.href='#event-um'">
@@ -568,7 +619,7 @@ Silakan unduh atau salin seluruh kode di bawah ini untuk memperbarui proyek hala
 
       <!-- FOOTER -->
       <footer>
-        <div>Pekan Arabi · Universitas Negeri Malang</div>
+        <div style="font-size: 11px; opacity: 0.6; margin-bottom: 4px;">Pekan Arabi · Universitas Negeri Malang</div>
         <div class="arabic">جميع الحقوق محفوظة © ٢٠٢٦</div>
       </footer>
 
